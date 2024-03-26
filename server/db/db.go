@@ -11,6 +11,7 @@ type Database struct {
 }
 
 func NewDataBase() (*Database, error) {
+	// TODO: move connection string to yaml file
 	db, err := sql.Open("postgres", "postgresql://root:password@localhost:5433/go-chat?sslmode=disable")
 	if err != nil {
 		return nil, err
