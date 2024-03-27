@@ -19,7 +19,9 @@ func (h *Handler) CreateUser(c *gin.Context) {
 	if err := c.ShouldBindJSON(&u); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
+
 	res, err := h.Service.CreateUser(c.Request.Context(), &u)
+
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 	}
